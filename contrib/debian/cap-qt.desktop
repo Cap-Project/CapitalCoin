@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CapitalCoin
+Comment=CapitalCoin P2P Cryptocurrency
+Comment[fr]=CapitalCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=CapitalCoin, eşten eşe kriptografik sanal para birimi
+Exec=cap-qt %u
+Terminal=false
+Type=Application
+Icon=cap128
+MimeType=x-scheme-handler/cap;
+Categories=Office;Finance;

@@ -1,0 +1,26 @@
+[Unit]
+Description=CAP's distributed currency daemon
+After=network.target
+
+[Service]
+User=cap
+Group=cap
+
+Type=forking
+PIDFile=/var/lib/capd/capd.pid
+
+ExecStart=/usr/bin/capd -daemon -pid=/var/lib/capd/capd.pid \
+          -conf=/etc/cap/cap.conf -datadir=/var/lib/capd
+
+ExecStop=-/usr/bin/cap-cli -conf=/etc/cap/cap.conf \
+         -datadir=/var/lib/capd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

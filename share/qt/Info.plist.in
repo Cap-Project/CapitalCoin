@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The PIVX Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The CapitalCoin Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,16 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>PIVX-Qt</string>
-  
-  <key>CFBundleName</key>
-  <string>PIVX-Qt</string>
-
-  <key>LSHasLocalizedDisplayName</key>
-  <true/>
+  <string>cap-qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.pivx.Pivx-Qt</string>
+  <string>io.cap.cap-qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.pivx.PivxPayment</string>
+      <string>io.cap.CapitalCoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>pivx</string>
+        <string>cap</string>
       </array>
     </dict>
   </array>
@@ -58,9 +52,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.pivx.paymentrequest</string>
+      <string>io.cap.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Pivx payment request</string>
+      <string>CapitalCoin payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-pivx-payment-request</string>
+        <string>application/x-cap-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>pivxpaymentrequest</string>
+          <string>cappaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.pivx.paymentrequest</string>
+        <string>io.cap.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

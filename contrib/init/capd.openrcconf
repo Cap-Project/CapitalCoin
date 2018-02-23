@@ -1,0 +1,26 @@
+# /etc/conf.d/capd: config file for /etc/init.d/capd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/cap/cap.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/capd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/capd.pid"
+
+# Where to write capd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/capd"
+
+# User and group to own capd process
+#BITCOIND_USER="cap"
+#BITCOIND_GROUP="cap"
+
+# Path to capd executable
+#BITCOIND_BIN="/usr/bin/capd"
+
+# Nice value to run capd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

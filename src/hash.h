@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017 The CapitalCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,9 +40,9 @@ public:
 
     void Finalize(unsigned char hash[OUTPUT_SIZE])
     {
-        unsigned char buf[CSHA256::OUTPUT_SIZE];
+        unsigned char buf[sha.OUTPUT_SIZE];
         sha.Finalize(buf);
-        sha.Reset().Write(buf, CSHA256::OUTPUT_SIZE).Finalize(hash);
+        sha.Reset().Write(buf, sha.OUTPUT_SIZE).Finalize(hash);
     }
 
     CHash256& Write(const unsigned char* data, size_t len)
@@ -99,9 +100,9 @@ public:
 
     void Finalize(unsigned char hash[OUTPUT_SIZE])
     {
-        unsigned char buf[CSHA256::OUTPUT_SIZE];
+        unsigned char buf[sha.OUTPUT_SIZE];
         sha.Finalize(buf);
-        CRIPEMD160().Write(buf, CSHA256::OUTPUT_SIZE).Finalize(hash);
+        CRIPEMD160().Write(buf, sha.OUTPUT_SIZE).Finalize(hash);
     }
 
     CHash160& Write(const unsigned char* data, size_t len)

@@ -179,7 +179,7 @@ BOOST_AUTO_TEST_CASE(hmac_sha256_testvectors) {
     TestHMACSHA256("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                    "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
                    "dddddddddddddddddddddddddddddddddddd",
-                   "773ea91e36800e46854db8ebd09181a72959098b3ef8c122d9635514ced565fe");
+                   "773ea91e36800e46854db8ebd09181a72949098b3ef8c122d9635514ced565fe");
     TestHMACSHA256("0102030405060708090a0b0c0d0e0f10111213141516171819",
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
                    "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
