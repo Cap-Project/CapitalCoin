@@ -199,10 +199,10 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x52;
-        pchMessageStart[1] = 0x63;
-        pchMessageStart[2] = 0x74;
-        pchMessageStart[3] = 0x85;
+        pchMessageStart[0] = 0x82;
+        pchMessageStart[1] = 0x3a;
+        pchMessageStart[2] = 0xbd;
+        pchMessageStart[3] = 0x19;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
         nDefaultPort = 9493;
         nEnforceBlockUpgradeMajority = 51;
