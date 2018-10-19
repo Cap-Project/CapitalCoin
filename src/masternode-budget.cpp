@@ -31,7 +31,12 @@ int GetBudgetPaymentCycleBlocks()
 {
     int64_t nSecondsPerMonth = 60*60*24*30;
 
-    return static_cast<int>(nSecondsPerMonth / Params().TargetSpacing());
+    if (Params().NetworkID() == CBaseChainParams::MAIN) {
+      return static_cast<int>(nSecondsPerMonth / Params().TargetSpacing());
+    }
+    
+    // For testing, every 12 hours for 1 min target spacing
+    return static_cast<int>(nSecondsPerMonth / Params().TargetSpacing() / 60);
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf)
