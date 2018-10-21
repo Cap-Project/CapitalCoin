@@ -69,8 +69,8 @@ void CActiveMasternode::ManageStatus()
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
-        } else if (service.GetPort() == Params().GetDefaultPort()) {
-            notCapableReason = strprintf("Invalid port: %u - Params().GetDefaultPort() is only supported on mainnet.", service.GetPort());
+        } else if (service.GetPort() == 9491) {
+            notCapableReason = strprintf("Invalid port: %u - 9491 is only supported on mainnet.", service.GetPort());
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
@@ -268,8 +268,8 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
             LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
             return false;
         }
-    } else if (service.GetPort() == Params().GetDefaultPort()) {
-        errorMessage = strprintf("Invalid port %u for masternode %s - Params().GetDefaultPort() is only supported on mainnet.", service.GetPort(), strService);
+    } else if (service.GetPort() == 9491) {
+        errorMessage = strprintf("Invalid port %u for masternode %s -  9491 is only supported on mainnet.", service.GetPort(), strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
     }
