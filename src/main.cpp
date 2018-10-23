@@ -2216,7 +2216,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
     }
 
-    if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint)) {
+    if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint) && (Params().NetworkID() != CBaseChainParams::TESTNET)) {
         return state.DoS(100,
             error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)",
                 FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)),
