@@ -82,6 +82,7 @@ static const Checkpoints::CCheckpointData dataRegtest = {
     0,
     100};
 
+
 class CMainParams : public CChainParams
 {
 public:
@@ -116,7 +117,6 @@ public:
         nMaxMoneyOut = int64_t(2000000) * COIN;
         nModifierInterval = 60;
         nModifierIntervalRatio = 3;
-        nBudgetPercent = 10;
         nMinStakeAge = 60*60*2;//2 hour
         nMasternodeRewardPercent = 80; // % of block reward that goes to masternodes
         nRequiredMasternodeCollateral = 10000 * COIN; //10,000 masternodes
@@ -212,7 +212,7 @@ public:
         nTargetTimespan = 1 * 60; // Cap: 1 day
         nTargetSpacing = 1 * 60;  // Cap: 1 minute
         nLastPOWBlock = 200;
-        nMaturity = 15;
+        nMaturity = 5;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 20000000 * COIN;

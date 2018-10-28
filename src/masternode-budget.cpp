@@ -796,7 +796,7 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
 
     CAmount nSubsidy = GetBlockValue(nHeight, 0, true); //calculate with 0 fees
 
-    return nSubsidy * Params().GetBudgetPercent() * GetBudgetPaymentCycleBlocks();
+    return nSubsidy * GetBudgetPercent(nHeight) * GetBudgetPaymentCycleBlocks();
 }
 
 void CBudgetManager::NewBlock()

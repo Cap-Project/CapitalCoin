@@ -1613,46 +1613,46 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 {
-
     int64_t nBudgetMultiplier = COIN;
     if (!fBudgetBlock)
-        nBudgetMultiplier = COIN - (Params().GetBudgetPercent() * CENT);
-
+        nBudgetMultiplier = COIN - (GetBudgetPercent(nHeight) * CENT);
     CAmount nSubsidy = 1000 * nBudgetMultiplier;
     if (nHeight == 1)
         nSubsidy = CAmount(2000000) * COIN; //premine has no budget allocation    
-	else if (nHeight < 1440)
+    else if (nHeight < 1440)
         nSubsidy = 4 * nBudgetMultiplier;
-	else if (nHeight < 87740)
+    else if (nHeight < 87740)
         nSubsidy = 24 * nBudgetMultiplier;
-	else if (nHeight < 87840)
+    else if (nHeight < 87840)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 174140)
+    else if (nHeight < 174140)
         nSubsidy = 22 * nBudgetMultiplier;
-	else if (nHeight < 174240)
+    else if (nHeight < 174240)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 260540)
+    else if (nHeight < 260540)
         nSubsidy = 20 * nBudgetMultiplier;
-	else if (nHeight < 260640)
+    else if (nHeight < 260640)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 346940)
+    else if (nHeight < 346940)
         nSubsidy = 18 * nBudgetMultiplier;
-	else if (nHeight < 347040)
+    else if (nHeight < 347040)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 433340)
+    else if (nHeight < 433340)
         nSubsidy = 16 * nBudgetMultiplier;
-	else if (nHeight < 433440)
+    else if (nHeight < 433440)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 519740)
+    else if (nHeight < 519740)
         nSubsidy = 14 * nBudgetMultiplier;
-	else if (nHeight < 519840)
+    else if (nHeight < 519840)
         nSubsidy = 100 * nBudgetMultiplier;
-	else if (nHeight < 606140)
+    else if (nHeight < 606140)
         nSubsidy = 12 * nBudgetMultiplier;
     else if (nHeight < 606240)
         nSubsidy = 100 * nBudgetMultiplier;
     else
         nSubsidy = 10 * nBudgetMultiplier;
+
+    LogPrintf("%s: nHeight=%d fBudgetBlock=%s GetBlockValue COIN=%d Params().GetBudgetPercent()=%d CENT=%d nBudgetMultiplier=%d nSubsidy=%d\n", __func__, nHeight, fBudgetBlock, FormatMoney(COIN), GetBudgetPercent(nHeight), CENT, FormatMoney(nBudgetMultiplier), FormatMoney(nSubsidy));
 
     return nSubsidy + nFees;
 }
@@ -1660,6 +1660,16 @@ int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 int64_t GetMasternodePayment(CAmount nTotalBlockReward)
 {
     return nTotalBlockReward / COIN * (Params().GetMasternodeRewardPercent() * CENT);
+}
+
+// Chain initially started with a governance budget of 1%
+// Respecting that for the blocks that have already passed but bumping it to 10% when block X is reached
+int64_t GetBudgetPercent(int nHeight) {
+    int64_t nBudgetPercent = 1;
+    if (nHeight > 400000) {
+        nBudgetPercent = 10;
+    }
+    return nBudgetPercent;
 }
 
 bool IsInitialBlockDownload()

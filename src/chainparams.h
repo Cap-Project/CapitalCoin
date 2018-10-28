@@ -97,7 +97,6 @@ public:
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
     int64_t GetMasternodeRewardPercent() const { return nMasternodeRewardPercent; }
-    int64_t GetBudgetPercent() const { return nBudgetPercent; }
     int64_t GetMinStakeAge() const { return nMinStakeAge; }
     unsigned int GetModifierInterval() const { return nModifierInterval; }
     unsigned int GetModifierIntervalRatio() const { return nModifierIntervalRatio; }
@@ -146,7 +145,6 @@ protected:
     int64_t nStartMasternodePayments;
 
     int64_t nMasternodeRewardPercent;
-    int64_t nBudgetPercent;
     int64_t nMinStakeAge;
     unsigned int nModifierInterval;
     unsigned int nModifierIntervalRatio;
