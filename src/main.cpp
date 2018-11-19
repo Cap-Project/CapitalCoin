@@ -1666,9 +1666,10 @@ int64_t GetMasternodePayment(CAmount nTotalBlockReward)
 // Respecting that for the blocks that have already passed but bumping it to 10% when block X is reached
 int64_t GetBudgetPercent(int nHeight) {
     int64_t nBudgetPercent = 1;
-    if (nHeight > 400000) {
-        nBudgetPercent = 10;
-    }
+    // Needs testing in testnet to ensure the chain accepts it
+    // if (nHeight > 400000) {
+    //    nBudgetPercent = 10;
+    //}
     return nBudgetPercent;
 }
 
