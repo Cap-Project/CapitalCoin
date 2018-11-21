@@ -1639,18 +1639,18 @@ int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
         nSubsidy = 100 * nBudgetMultiplier;
     else if (nHeight < 433340)
         nSubsidy = 16 * nBudgetMultiplier;
-    else if (nHeight < 433440)
-        nSubsidy = 100 * nBudgetMultiplier;
-    else if (nHeight < 519740)
-        nSubsidy = 14 * nBudgetMultiplier;
-    else if (nHeight < 519840)
-        nSubsidy = 100 * nBudgetMultiplier;
-    else if (nHeight < 606140)
-        nSubsidy = 12 * nBudgetMultiplier;
-    else if (nHeight < 606240)
-        nSubsidy = 100 * nBudgetMultiplier;
+    else if (nHeight < 500000)
+        nSubsidy = 8 * nBudgetMultiplier;
+    else if (nHeight < 1000000)
+        nSubsidy = 7 * nBudgetMultiplier;
+    else if (nHeight < 2000000)
+        nSubsidy = 6 * nBudgetMultiplier;
+    else if (nHeight < 3000000)
+        nSubsidy = 5 * nBudgetMultiplier;
+    else if (nHeight < 4000000)
+        nSubsidy = 4 * nBudgetMultiplier;
     else
-        nSubsidy = 10 * nBudgetMultiplier;
+        nSubsidy = 3 * nBudgetMultiplier;
 
     LogPrintf("%s: nHeight=%d fBudgetBlock=%s GetBlockValue COIN=%d Params().GetBudgetPercent()=%d CENT=%d nBudgetMultiplier=%d nSubsidy=%d\n", __func__, nHeight, fBudgetBlock, FormatMoney(COIN), GetBudgetPercent(nHeight), CENT, FormatMoney(nBudgetMultiplier), FormatMoney(nSubsidy));
 
